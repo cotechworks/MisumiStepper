@@ -33,23 +33,27 @@ void MisumiStepper::setSpeed(float speed) {
 }
 
 void MisumiStepper::setSpeed(double speed) {
-  _speed = static_cast<float>(speed);
-  delay(10);
+  setSpeed(static_cast<float>(speed));
 }
 
 void MisumiStepper::setSpeed(int speed) {
-  _speed = static_cast<float>(speed);
-  delay(10);
+  setSpeed(static_cast<float>(speed));
+}
+
+float MisumiStepper::getSpeed() {
+  return _speed;
 }
 
 void MisumiStepper::start() {
   _state = true;
+  _speed = 0.0;
   digitalWrite(_enaPin, LOW);
   digitalWrite(_dirPin, HIGH);
 }
 
 void MisumiStepper::hold() {
   _state = false;
+  _speed = 0.0;
   digitalWrite(_enaPin, LOW);
   digitalWrite(_dirPin, HIGH);
   digitalWrite(_pulPin, LOW);
@@ -57,6 +61,7 @@ void MisumiStepper::hold() {
 
 void MisumiStepper::stop() {
   _state = false;
+  _speed = 0.0;
   digitalWrite(_enaPin, HIGH);
   digitalWrite(_dirPin, LOW);
   digitalWrite(_pulPin, LOW);
@@ -88,11 +93,11 @@ void MisumiStepper::StepperHandler() {
     } else {
       digitalWrite(_dirPin, LOW);
     }
+    float abs_speed = abs(_speed);
 
     // パルスの生成間隔の計算
     uint32_t wait = static_cast<uint32_t>(
-        60000000.0 / (static_cast<float>(_pulse_count) * 2.0 * _speed));
-
+        60000000.0 / (static_cast<float>(_pulse_count) * 2.0 * abs_speed));
     // パルスの生成
     if (_time_count >= wait) {
       _time_count = 0;

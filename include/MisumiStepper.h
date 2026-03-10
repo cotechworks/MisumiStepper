@@ -18,7 +18,7 @@ class MisumiStepper {
    * @param target_speed 目標速度 (rpm)
    */
   MisumiStepper(int enaPin, int dirPin, int pulPin, MovingMode mode,
-                uint32_t period_us, uint32_t pulse_num, uint32_t speed,
+                uint32_t period_us, uint32_t pulse_num, uint32_t speed = 60.0,
                 float acceleration = 0.0);
 
   /**
@@ -33,6 +33,11 @@ class MisumiStepper {
   void setSpeed(float speed);
   void setSpeed(int speed);
   void setSpeed(double speed);
+  /**
+   * 速度の取得
+   * @return 速度 (rpm)
+   */
+  float getSpeed();
   /**
    * 動作開始
    */
