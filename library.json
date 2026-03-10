@@ -1,0 +1,22 @@
+{
+  "name": "MisumiStepper",
+  "version": "1.0.0",
+  "description": "Misumi Stepper Library for Arduino",
+  "keywords": "stepper",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cotechworks/MisumiStepper.git"
+  },
+  "authors": [
+    {
+      "name": "Koki Kokubo",
+      "email": "cotechworks63@gmail.com",
+      "url": "https://github.com/cotechworks"
+    }
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/cotechworks/MisumiStepper",
+  "dependencies": {},
+  "frameworks": "arduino",
+  "platforms": "*"
+}
