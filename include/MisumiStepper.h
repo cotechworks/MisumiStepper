@@ -39,6 +39,11 @@ class MisumiStepper {
    */
   float getSpeed();
   /**
+   * 状態の取得
+   * @return true: 動作中, false: 停止中
+   */
+  bool getState();
+  /**
    * 動作開始
    */
   void start();

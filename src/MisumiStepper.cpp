@@ -45,6 +45,8 @@ float MisumiStepper::getSpeed() {
 }
 
 void MisumiStepper::start() {
+bool MisumiStepper::getState() { return _state; }
+
   _state = true;
   _speed = 0.0;
   digitalWrite(_enaPin, LOW);
