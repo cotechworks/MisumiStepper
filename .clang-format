@@ -1,0 +1,10 @@
+BasedOnStyle: LLVM
+IndentWidth: 2
+SpacesInConditionalStatement: true
+SpacesInParentheses: true
+SpaceBeforeParens: Never
+BreakBeforeBraces: Linux
+ColumnLimit: 132
+AlignConsecutiveMacros: true
+AllowShortIfStatementsOnASingleLine: true
+AlignTrailingComments: true
